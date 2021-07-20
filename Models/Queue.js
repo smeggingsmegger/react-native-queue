@@ -7,8 +7,7 @@
  */
 
 import Database from '../config/Database';
-// import uuid from 'react-native-uuid';
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-native-uuid';
 import Worker from './Worker';
 import promiseReflect from 'promise-reflect';
 
@@ -96,7 +95,7 @@ export class Queue {
     this.realm.write(() => {
 
       this.realm.create('Job', {
-        id: uuidv4(),
+        id: uuid.v4(),
         name,
         payload: JSON.stringify(payload),
         data: JSON.stringify({
